@@ -14,11 +14,21 @@ nodejs , express  and nestjs
 database i have used mongodb
 
 
+#features
+able to create a short link
+able to retreive the orginal link
+track number of clicks on each url
+
+
+
 
 
 for easier testing i have deployed it on render and the links are shown below
 
-link [Link text](link URL)
+link [Link text](https://urlshortenerpatela24group.onrender.com/api)
+
+would have loved to add microservices like rabbitmq
+
 also managed to add a swagger tot the ends points for easier access to the features
 ##
 
