@@ -1,15 +1,13 @@
 import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { MongooseModule } from '@nestjs/mongoose';
 import { UrlShortener, urlShortenerSchema } from './models';
 
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ShortnerController } from './controllers';
 import { UtilsService } from './services';
 import { ShotnerService } from './services/shortner';
-import { ShortnerController } from './controllers';
-import { APP_FILTER } from '@nestjs/core';
-import { GlobalExceptionsFilter } from './helpers';
 
 @Module({
   imports: [
@@ -33,10 +31,10 @@ import { GlobalExceptionsFilter } from './helpers';
     ConfigService,
     UtilsService,
     ShotnerService,
-    {
-      provide: APP_FILTER,
-      useClass: GlobalExceptionsFilter,
-    },
+    // {
+    //   provide: APP_FILTER,
+    //   useClass: GlobalExceptionsFilter,
+    // },
   ],
 })
 export class AppModule {}
