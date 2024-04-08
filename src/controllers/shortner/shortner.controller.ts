@@ -1,6 +1,5 @@
-import { Body, Controller, Get, Post, Query, Res } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { Response } from 'express';
 import { CreateShortUrlDTO, getLongUrlDTO } from 'src/models';
 import { ShotnerService } from 'src/services/shortner';
 
@@ -15,10 +14,7 @@ export class ShortnerController {
   }
 
   @Get('shortUrl')
-  async redirectToLongUrl(
-    @Query('shortUrl') url: string,
-    @Res() res: Response,
-  ): Promise<any> {
+  async redirectToLongUrl(@Query('shortUrl') url: string): Promise<any> {
     const packet: getLongUrlDTO = {
       shortURL: url,
     };
@@ -29,6 +25,14 @@ export class ShortnerController {
       };
     }
 
-    res.redirect(`${result.data}`);
+    return result.data;
+  }
+
+  @Get('/clicks')
+  async getClicks(
+    @Param('shortURL') shortURL: string,
+  ): Promise<{ clicks: number }> {
+    const clicks = await this.shortnerService.getClicks(shortURL);
+    return { clicks };
   }
 }
