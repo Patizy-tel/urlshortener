@@ -5,7 +5,7 @@ import { CreateShortUrlDTO, UrlShortener, getLongUrlDTO } from 'src/models';
 import { UtilsService } from '../utils';
 
 @Injectable()
-export class ShornerService {
+export class ShotnerService {
   constructor(
     @InjectModel(UrlShortener.name)
     private readonly shortnerModel: Model<UrlShortener>,

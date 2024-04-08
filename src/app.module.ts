@@ -5,6 +5,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { UrlShortener, urlShortenerSchema } from './models';
 
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { UtilsService } from './services';
+import { ShornerService } from './services/shortner';
 
 @Module({
   imports: [
@@ -23,6 +25,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     ]),
   ],
   controllers: [AppController],
-  providers: [AppService, ConfigService],
+  providers: [AppService, ConfigService, UtilsService, ShornerService],
 })
 export class AppModule {}
