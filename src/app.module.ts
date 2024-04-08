@@ -8,6 +8,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UtilsService } from './services';
 import { ShotnerService } from './services/shortner';
 import { ShortnerController } from './controllers';
+import { APP_FILTER } from '@nestjs/core';
+import { GlobalExceptionsFilter } from './helpers';
 
 @Module({
   imports: [
@@ -26,6 +28,15 @@ import { ShortnerController } from './controllers';
     ]),
   ],
   controllers: [AppController, ShortnerController],
-  providers: [AppService, ConfigService, UtilsService, ShotnerService],
+  providers: [
+    AppService,
+    ConfigService,
+    UtilsService,
+    ShotnerService,
+    {
+      provide: APP_FILTER,
+      useClass: GlobalExceptionsFilter,
+    },
+  ],
 })
 export class AppModule {}

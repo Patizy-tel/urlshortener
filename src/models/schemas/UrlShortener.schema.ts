@@ -11,7 +11,7 @@ export class UrlShortener extends Document {
   @Prop({ required: true, unique: true })
   shortURL: string;
 
-  @Prop({ type: Number, default: 0 })
+  @Prop({ default: 0 })
   clicks: number;
 }
 

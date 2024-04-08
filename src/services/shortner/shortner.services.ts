@@ -60,7 +60,8 @@ export class ShotnerService {
   }
 
   async getClicks(shortURL: string): Promise<number> {
-    const record = await this.shortnerModel.findOne({ shortURL });
+    const record = await this.shortnerModel.findOne({ shortURL: shortURL });
+    console.log(record);
     return record ? record.clicks : 0;
   }
 }

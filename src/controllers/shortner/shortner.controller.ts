@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { CreateShortUrlDTO, getLongUrlDTO } from 'src/models';
 import { ShotnerService } from 'src/services/shortner';
@@ -30,7 +30,7 @@ export class ShortnerController {
 
   @Get('/clicks')
   async getClicks(
-    @Param('shortURL') shortURL: string,
+    @Query('shortURL') shortURL: string,
   ): Promise<{ clicks: number }> {
     const clicks = await this.shortnerService.getClicks(shortURL);
     return { clicks };
