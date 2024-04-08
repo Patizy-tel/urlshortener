@@ -5,10 +5,10 @@ import { Document } from 'mongoose';
   timestamps: true,
 })
 export class UrlShortener extends Document {
-  @Prop({ required: true })
+  @Prop({ required: true, unique: true })
   longURL: string;
 
-  @Prop({ required: true })
+  @Prop({ required: true, unique: true })
   shortURL: string;
 }
 
