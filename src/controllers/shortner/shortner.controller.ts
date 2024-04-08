@@ -14,7 +14,7 @@ export class ShortnerController {
     return await this.shortnerService.shortenUrl(url);
   }
 
-  @Get(':shortUrl')
+  @Get('shortUrl')
   async redirectToLongUrl(
     @Query('shortUrl') url: string,
     @Res() res: Response,
@@ -28,6 +28,7 @@ export class ShortnerController {
         message: 'NO Url found , please try with a different one',
       };
     }
-    res.redirect(`result.data`);
+
+    res.redirect(`${result.data}`);
   }
 }

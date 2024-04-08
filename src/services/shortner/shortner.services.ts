@@ -51,7 +51,7 @@ export class ShotnerService {
 
       return {
         message: 'url found',
-        data: url,
+        data: url.longURL,
       };
     } catch (error) {
       return new HttpException(error.message, 500);
