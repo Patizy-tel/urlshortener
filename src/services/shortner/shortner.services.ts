@@ -42,12 +42,17 @@ export class ShotnerService {
         shortURL: URL.shortURL.toString(),
       });
 
-      if (url) {
+      if (!url) {
         return {
-          message: 'url  found',
-          data: url,
+          message: 'url not found',
+          data: null,
         };
       }
+
+      return {
+        message: 'url found',
+        data: url,
+      };
     } catch (error) {
       return new HttpException(error.message, 500);
     }

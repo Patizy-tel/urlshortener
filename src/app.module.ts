@@ -6,7 +6,8 @@ import { UrlShortener, urlShortenerSchema } from './models';
 
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UtilsService } from './services';
-import { ShornerService } from './services/shortner';
+import { ShotnerService } from './services/shortner';
+import { ShortnerController } from './controllers';
 
 @Module({
   imports: [
@@ -24,7 +25,7 @@ import { ShornerService } from './services/shortner';
       { name: UrlShortener.name, schema: urlShortenerSchema },
     ]),
   ],
-  controllers: [AppController],
-  providers: [AppService, ConfigService, UtilsService, ShornerService],
+  controllers: [AppController, ShortnerController],
+  providers: [AppService, ConfigService, UtilsService, ShotnerService],
 })
 export class AppModule {}
