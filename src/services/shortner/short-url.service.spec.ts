@@ -1,7 +1,8 @@
 import { getModelToken } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
+import { ShotnerService } from './shortner.services';
 import { UrlShortener } from 'src/models';
-import { ShotnerService } from 'src/services/shortner';
+
 describe('ShotnerService', () => {
   let service: ShotnerService;
   const mockShortURLModel = {
