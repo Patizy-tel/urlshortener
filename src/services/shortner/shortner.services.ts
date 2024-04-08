@@ -48,7 +48,8 @@ export class ShotnerService {
           data: null,
         };
       }
-
+      url.clicks++;
+      await url.save();
       return {
         message: 'url found',
         data: url.longURL,
@@ -56,5 +57,10 @@ export class ShotnerService {
     } catch (error) {
       return new HttpException(error.message, 500);
     }
+  }
+
+  async getClicks(shortURL: string): Promise<number> {
+    const record = await this.shortnerModel.findOne({ shortURL });
+    return record ? record.clicks : 0;
   }
 }
