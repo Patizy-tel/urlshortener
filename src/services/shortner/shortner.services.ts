@@ -82,4 +82,34 @@ export class ShotnerService {
       return new HttpException(error.message, 500);
     }
   }
+
+  async getTotalUrlCreatedEachDay(): Promise<any> {
+    try {
+      const result = await this.shortnerModel.aggregate([
+        {
+          $group: {
+            _id: {
+              year: { $year: '$createdAt' },
+              month: { $month: '$createdAt' },
+              day: { $dayOfMonth: '$createdAt' },
+            },
+            count: { $sum: 1 },
+          },
+        },
+        {
+          $sort: {
+            '_id.year': 1,
+            '_id.month': 1,
+            '_id.day': 1,
+          },
+        },
+      ]);
+
+      return {
+        result,
+      };
+    } catch (error) {
+      return new HttpException(error.message, 500);
+    }
+  }
 }
