@@ -50,7 +50,7 @@ export class ShortnerController {
 
   @Get('/statistics')
   async getStatistics(): Promise<any> {
-    const clicks = await this.shortnerService.getTotalUrlCreatedEachDay();
-    return { clicks };
+    const results = await this.shortnerService.getTotalUrlCreatedEachDay();
+    return { results };
   }
 }
