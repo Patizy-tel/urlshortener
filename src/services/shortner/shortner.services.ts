@@ -65,15 +65,11 @@ export class ShotnerService {
     return record ? record.clicks : 0;
   }
 
-  async getallShortUrlsPagianted(
-    query: any,
-    page: number,
-    pageSize: number,
-  ): Promise<any> {
+  async getallShortUrlsPaginated(page: number, pageSize: number): Promise<any> {
     try {
       const skip = (page - 1) * pageSize;
       const records = await this.shortnerModel
-        .find(query)
+        .find()
         .skip(skip)
         .limit(pageSize);
 
