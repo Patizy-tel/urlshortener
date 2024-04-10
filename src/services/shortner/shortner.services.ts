@@ -64,4 +64,26 @@ export class ShotnerService {
     console.log(record);
     return record ? record.clicks : 0;
   }
+
+  async getallShortUrlsPagianted(
+    query: any,
+    page: number,
+    pageSize: number,
+  ): Promise<any> {
+    try {
+      const skip = (page - 1) * pageSize;
+      const records = await this.shortnerModel
+        .find(query)
+        .skip(skip)
+        .limit(pageSize);
+
+      return {
+        results: records,
+        page: page,
+        size: pageSize,
+      };
+    } catch (error) {
+      return new HttpException(error.message, 500);
+    }
+  }
 }
