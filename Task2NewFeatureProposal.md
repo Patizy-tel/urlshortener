@@ -23,6 +23,9 @@ Database Schema Update:
 
 
 Add a new field to the URL documents in MongoDB to store the expiration date and time for each shortened URL.
+
+
+
 Backend Implementation:
 
 
@@ -108,10 +111,23 @@ Anticipated Impact:
 
 Enhanced User Control:
 
+
+
 Users can now manage the lifespan of shared URLs, providing improved control over the visibility and accessibility of their shared content.
+
+
+
+
 Improved Security:
 
+
+
 Automatically expiring URLs can reduce the risk of unauthorized access to sensitive information shared via shortened links, enhancing overall security.
+
+
+
 User Engagement:
+
+
 
 The Scheduled Link Expiration feature adds a new dimension to user interaction with the service by offering the ability to set time-limited sharing options, potentially increasing user engagement and utilization of the service.
