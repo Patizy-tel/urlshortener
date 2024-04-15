@@ -47,4 +47,10 @@ export class ShortnerController {
 
     return this.shortnerService.getallShortUrlsPaginated(pageNum, pageSizeNum);
   }
+
+  @Get('/statistics')
+  async getStatistics(): Promise<any> {
+    const results = await this.shortnerService.getTotalUrlCreatedEachDay();
+    return { results };
+  }
 }
