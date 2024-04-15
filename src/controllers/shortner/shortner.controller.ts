@@ -35,4 +35,16 @@ export class ShortnerController {
     const clicks = await this.shortnerService.getClicks(shortURL);
     return { clicks };
   }
+
+  @Get('/paginated-results')
+  async getPaginatedResults(
+    @Query('page') page: number,
+    @Query('pageSize') pageSize: number,
+  ) {
+    // Convert query params to numbers and set defaults if necessary
+    const pageNum = parseInt(page.toString(), 10) || 1;
+    const pageSizeNum = parseInt(pageSize.toString(), 10) || 10;
+
+    return this.shortnerService.getallShortUrlsPaginated(pageNum, pageSizeNum);
+  }
 }
