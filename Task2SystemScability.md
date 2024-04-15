@@ -1,19 +1,26 @@
-analysing the current architecture of the url shortening service  2  potential bottle necks  found  that may face perfomance issues
-
-*potential  bottlenecks*:
-
-1: *Concurrency and request handling*:current seip  in the nestjs  may  struggle to handle concurrent requests effficiently leading to  bottlenexks in incoming traffic
-
-2:*database  perfomance*:with the current setup  an increased  read and write operations especially handling  high volumnes  request and analytics tracking may pose to be a problem  in terms of efficiency and performance
+analysing the current architecture of the url shortening service  2  potential bottle necks  found
 
 
+1: *Concurrency and request handling*:
 
+
+            current setup  in the nestjs  may  struggle to handle concurrent requests effficiently leading to  bottlenecks in incoming traffic
+
+
+
+2: *database  perfomance*:
+
+
+        with the current setup  an increased  read and write operations especially handling  high volumes  request and analytics tracking may pose to be a problem  in terms of efficiency and performance
+
+
+########################################################################################################################################################################
 *proposed solution*:
 
 1:Database Scaling:
 
 
-        Vertical Scaling: increase the database servers resources (cpu ,ram ,storage) to  handle the increased workload temporarilt( this one has limitations also in terms on scalability)
+        Vertical Scaling: increase the database servers resources (cpu ,ram ,storage) to  handle the increased workload temporarily( this one has limitations also in terms on scalability)
 
 
         Horizontal scaling:shard the mongo database to distribute the data across multiple  servers based on the shard key: Implement  replica sets to improve scalability and fault tolerance
@@ -23,7 +30,7 @@ analysing the current architecture of the url shortening service  2  potential b
 2:Caching:
 
 
-        introduce caching mechanism using redis or memchached to cache frequently access data , this will reduce the load on the database and improve  response time
+        introduce caching mechanism using redis  to cache frequently access data , this will reduce the load on the database and improve  response time
 
 
 
