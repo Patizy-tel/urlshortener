@@ -35,7 +35,7 @@ also managed to add a swagger tot the ends points for easier access to the featu
 to run the project on your local pc
 
 
-you can clonet the repo
+you can clone the repo
 
 
 then  do  npm install
