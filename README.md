@@ -25,7 +25,7 @@ track number of clicks on each url
 
 for easier testing i have deployed it on render and the links are shown below
 
-link [Link text](https://urlshortenerpatela24group.onrender.com/api)
+link [Link to the deployed version](https://urlshortenerpatela24group.onrender.com/api)
 
 would have loved to add microservices like rabbitmq
 
@@ -35,7 +35,7 @@ also managed to add a swagger tot the ends points for easier access to the featu
 to run the project on your local pc
 
 
-you can clonet the repo
+you can clone the repo
 
 
 then  do  npm install
